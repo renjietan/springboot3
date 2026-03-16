@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: springboot3
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot3?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# swagger
+springdoc:
+  # 扫描的包路径，如果不配置默认扫描所有（建议指定，提高启动速度）
+  packages-to-scan:
+    - com.example.springboot3.controller
+    - com.example.springboot3.dto
+  # 接口文档元数据路径（OpenAPI JSON 的访问路径，默认 /v3/api-docs）
+  api-docs:
+    path: /api-docs
+  # Swagger UI 界面访问路径（默认 /swagger-ui.html）
+  swagger-ui:
+    path: /swagger-ui.html
+    # 是否默认展开标签，可选：list（展开）或 none（折叠）
+    doc-expansion: list
+    # 是否启用 Swagger UI，生产环境可关闭
+    enabled: true
+
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  # Mapper XML 文件位置
+  mapper-locations: classpath*:/mapper/**/*.xml
+  # 实体类包路径，用于别名扫描
+  type-aliases-package: com.example.springboot3.entity
+  # 全局配置
+  global-config:
+    db-config:
+      # 主键类型 (例如 ASSIGN_ID 使用雪花算法，AUTO 使用数据库自增)
+      id-type: ASSIGN_ID
+      # 逻辑删除字段名
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  # 原生 MyBatis 配置
+  configuration:
+    # 下划线转驼峰
+    map-underscore-to-camel-case: true
+    # 开发环境下开启日志，方便调试
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 开启缓存
+    cache-enabled: false
