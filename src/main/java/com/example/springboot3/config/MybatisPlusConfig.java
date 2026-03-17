@@ -1,11 +1,14 @@
 package com.example.springboot3.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import com.example.springboot3.utils.exception.MyMetaObjectHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,6 +16,8 @@ import javax.sql.DataSource;
 
 @Configuration
 public class MybatisPlusConfig {
+    @Autowired
+    private MyMetaObjectHandler myMetaObjectHandler;  // 你的自动填充处理器
 
     /**
      * 配置 MyBatis-Plus 插件主体
@@ -53,13 +58,40 @@ public class MybatisPlusConfig {
     }
 
 
+   /* @Bean
+    public MybatisSqlSessionFactoryBean sqlSessionFactory(DataSource dataSource) {
+        MybatisSqlSessionFactoryBean sessionFactory = new MybatisSqlSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource);
+        // 其他配置
+        return sessionFactory;
+    }*/
+
     @Bean
     public MybatisSqlSessionFactoryBean sqlSessionFactory(DataSource dataSource) {
         MybatisSqlSessionFactoryBean sessionFactory = new MybatisSqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        // 其他配置...
+
+        // 1. 手动设置全局配置（包含自动填充处理器）
+        GlobalConfig globalConfig = new GlobalConfig();
+        globalConfig.setMetaObjectHandler(myMetaObjectHandler); // 注入自动填充
+
+        // 如果需要，可以从配置文件中读取全局配置（如主键策略），但更简单的方式是让自动配置处理
+        // 这里为了简化，可以保持其他默认值，但注意 db-config 中的配置不会自动应用，需要手动设置
+        // 例如：
+        // GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig();
+        // dbConfig.setIdType(IdType.ASSIGN_ID);
+        // globalConfig.setDbConfig(dbConfig);
+
+        sessionFactory.setGlobalConfig(globalConfig);
+
+        // 2. 手动设置插件
+        sessionFactory.setPlugins(mybatisPlusInterceptor());
+
+        // 如果需要设置 mapper 位置、typeAliases 等，也可以手动设置：
+        // sessionFactory.setMapperLocations(...);
+        // sessionFactory.setTypeAliasesPackage("com.example.springboot3.entity");
+
         return sessionFactory;
     }
     // 如果有需要，也可以在这里配置其他的 Bean，如 IdentifierGenerator 等
-
 }

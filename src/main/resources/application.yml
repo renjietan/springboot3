@@ -1,3 +1,7 @@
+server:
+  address: 127.0.0.1
+  port: 8080
+
 spring:
   application:
     name: springboot3
@@ -40,6 +44,8 @@ mybatis-plus:
       logic-delete-field: deleted
       logic-delete-value: 1
       logic-not-delete-value: 0
+      # 只更新 非空 的字段
+      # update-strategy: not_null
   # 原生 MyBatis 配置
   configuration:
     # 下划线转驼峰

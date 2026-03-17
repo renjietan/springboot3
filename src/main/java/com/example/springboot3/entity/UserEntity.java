@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @TableName("user")
 public class UserEntity {
-    @TableId(type = IdType.ASSIGN_ID)  // 使用雪花算法生成 ID
+    //    @TableId()  // 使用雪花算法生成 ID
     private Long id;
 
     private String name;
@@ -24,7 +24,7 @@ public class UserEntity {
     @TableField(fill = FieldFill.INSERT)  // 插入时自动填充
     private LocalDateTime createTime;
 
-    @TableField(fill = FieldFill.INSERT_UPDATE)  // 插入和更新时自动填充
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
     @TableLogic  // 逻辑删除字段

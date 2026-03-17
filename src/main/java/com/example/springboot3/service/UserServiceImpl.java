@@ -2,7 +2,7 @@ package com.example.springboot3.service;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.springboot3.entity.UserEntity;
-import com.example.springboot3.mapper.UserMapper;
+import com.example.springboot3.mapper.user.UserMapper;
 import com.example.springboot3.service.interfaces.UserService;
 import org.springframework.stereotype.Service;
 
