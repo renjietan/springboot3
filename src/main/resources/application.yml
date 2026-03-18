@@ -29,6 +29,7 @@ springdoc:
     enabled: true
 
 
+
 # MyBatis-Plus 配置
 mybatis-plus:
   # Mapper XML 文件位置
@@ -54,3 +55,4 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     # 开启缓存
     cache-enabled: false
+

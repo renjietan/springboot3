@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @TableName("user")
 public class UserEntity {
-    //    @TableId()  // 使用雪花算法生成 ID
+    @TableId(type = IdType.ASSIGN_ID)  // 使用雪花算法生成 ID?
     private Long id;
 
     private String name;

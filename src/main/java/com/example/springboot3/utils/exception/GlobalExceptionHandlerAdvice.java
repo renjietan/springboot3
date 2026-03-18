@@ -17,7 +17,6 @@ import java.util.Set;
 public class GlobalExceptionHandlerAdvice {
     // 处理 @RequestBody 参数校验失败（使用 @Valid 或 @Validated 时都可能抛出此异常）
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    /*ResponseEntity<Map<String, Object>>*/
     public Result<Map<String, Object>> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, Object> errors = new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {
