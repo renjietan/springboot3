@@ -1,6 +1,8 @@
 package com.example.springboot3.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,8 +14,7 @@ import java.time.LocalDateTime;
 @Data
 @TableName("user")
 public class UserEntity {
-    @TableId(type = IdType.AUTO)  // 使用雪花算法生成 ID?
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -28,7 +29,7 @@ public class UserEntity {
     private LocalDateTime updateTime;
 
     @TableField(fill = FieldFill.INSERT)
-//    @TableLogic  // 逻辑删除字段
+    @TableLogic  // 逻辑删除字段
     private Integer deleted;
 
     @Override

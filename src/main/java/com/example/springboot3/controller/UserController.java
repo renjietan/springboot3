@@ -2,6 +2,7 @@ package com.example.springboot3.controller;
 
 import com.example.springboot3.dto.user.BatchUserDTO;
 import com.example.springboot3.dto.user.UserDTO;
+import com.example.springboot3.dto.user.UserQueryDTO;
 import com.example.springboot3.entity.UserEntity;
 import com.example.springboot3.service.interfaces.UserService;
 import com.example.springboot3.utils.Result;
@@ -36,7 +37,7 @@ public class UserController {
         userService.save(user);
         return Result.success(user);
     }
-    @PostMapping("/batch")
+    @PutMapping("/batch")
     public Result<List<UserEntity>> createUserBatch(@Valid @RequestBody BatchUserDTO userDTOList) {
         List<UserEntity> user_entities = new ArrayList<UserEntity>();
         for (UserDTO userDTO : userDTOList.getUsers()) {
@@ -56,5 +57,16 @@ public class UserController {
             return Result.error("用户不存在");
         }
         return Result.success(user);
+    }
+    @DeleteMapping("{userId}")
+    public Result<Boolean> deleteUser(@PathVariable Long userId) {
+        boolean isSuccess = userService.removeById(userId);
+        return Result.success(isSuccess);
+    }
+
+    @GetMapping("/list")
+    public Result<?> getUsers(@ModelAttribute UserQueryDTO pageParam) {
+        Object data = userService.getList(pageParam);
+        return Result.success(data);
     }
 }
