@@ -2,6 +2,14 @@ server:
   address: 127.0.0.1
   port: 8080
 
+logging:
+  level:
+    # 替换为你的 Mapper 接口所在的包路径
+    com:
+      example:
+        springboot3:
+          mapper: debug
+
 spring:
   application:
     name: springboot3
@@ -40,7 +48,7 @@ mybatis-plus:
   global-config:
     db-config:
       # 主键类型 (例如 ASSIGN_ID 使用雪花算法，AUTO 使用数据库自增)
-      id-type: ASSIGN_ID
+      id-type: AUTO
       # 逻辑删除字段名
       logic-delete-field: deleted
       logic-delete-value: 1

@@ -70,7 +70,6 @@ public class MybatisPlusConfig {
     public MybatisSqlSessionFactoryBean sqlSessionFactory(DataSource dataSource) {
         MybatisSqlSessionFactoryBean sessionFactory = new MybatisSqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-
         // 1. 手动设置全局配置（包含自动填充处理器）
         GlobalConfig globalConfig = new GlobalConfig();
         globalConfig.setMetaObjectHandler(myMetaObjectHandler); // 注入自动填充

@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @TableName("user")
 public class UserEntity {
-    @TableId(type = IdType.ASSIGN_ID)  // 使用雪花算法生成 ID?
+    @TableId(type = IdType.AUTO)  // 使用雪花算法生成 ID?
     private Long id;
 
     private String name;
@@ -27,7 +27,8 @@ public class UserEntity {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
-    @TableLogic  // 逻辑删除字段
+    @TableField(fill = FieldFill.INSERT)
+//    @TableLogic  // 逻辑删除字段
     private Integer deleted;
 
     @Override
