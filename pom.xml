@@ -125,6 +125,18 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!--代码自动生成-->
+        <dependency>
+            <groupId>io.github.liyao52033</groupId>
+            <artifactId>liyao-spring-boot3-starter-codegen</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.liyao52033</groupId>
+            <artifactId>liyao-spring-boot3-starter-ErrorCode</artifactId>
+            <version>1.2.0</version>
+        </dependency>
     </dependencies>
 
     <build>

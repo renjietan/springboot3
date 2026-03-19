@@ -2,6 +2,11 @@ server:
   address: 127.0.0.1
   port: 8080
 
+generator:
+  outputDir: src/main/java   # 生成的代码输出目录（绝对或相对路径）
+  basePackage: com.example.springboot3  # 基础包名
+  author: tanrenjie               # 作者
+
 logging:
   level:
     # 替换为你的 Mapper 接口所在的包路径
@@ -11,6 +16,8 @@ logging:
           mapper: debug
 
 spring:
+#  config:
+#    import: classpath:codegen.yml
   application:
     name: springboot3
   datasource:
@@ -63,4 +70,6 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     # 开启缓存
     cache-enabled: false
+
+# 代码自动生成
 

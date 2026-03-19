@@ -1,0 +1,21 @@
+package ${table.packageName}.service;
+
+import ${table.packageName}.entity.${table.className};
+import java.util.List;
+
+/**
+ * ${table.classComment} Service 接口
+ * @author ${author}
+ */
+public interface I${table.className}Service {
+
+    ${table.className} getById(#foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} id#end#end);
+
+    List<${table.className}> listAll();
+
+    void save(${table.className} entity);
+
+    void update(${table.className} entity);
+
+    void deleteById(#foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} id#end#end);
+}

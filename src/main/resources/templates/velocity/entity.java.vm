@@ -1,0 +1,33 @@
+package ${table.packageName}.entity;
+
+import java.util.Date;
+#foreach($col in $table.columns)
+    #if($col.fieldType == "BigDecimal")
+    import java.math.BigDecimal;
+    #end
+#end
+
+/**
+ * ${table.classComment}
+ * 自动生成代码
+ * @author ${author}
+ * @date ${date}
+ */
+public class ${table.className} {
+
+    #foreach($col in $table.columns)
+            /** ${col.columnComment} */
+            private ${col.fieldType} ${col.fieldName};
+
+    #end
+    #foreach($col in $table.columns)
+            public ${col.fieldType} get${tool.capitalize($col.fieldName)}() {
+                return ${col.fieldName};
+            }
+
+            public void set${tool.capitalize($col.fieldName)}(${col.fieldType} ${col.fieldName}) {
+                this.${col.fieldName} = ${col.fieldName};
+            }
+
+    #end
+        }

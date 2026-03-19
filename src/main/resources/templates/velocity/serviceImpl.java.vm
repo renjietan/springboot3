@@ -1,0 +1,44 @@
+package ${table.packageName}.service.impl;
+
+import ${table.packageName}.entity.${table.className};
+import ${table.packageName}.mapper.${table.className}Mapper;
+import ${table.packageName}.service.I${table.className}Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+/**
+ * ${table.classComment} Service 实现
+ * @author ${author}
+ */
+@Service
+public class ${table.className}ServiceImpl implements I${table.className}Service {
+
+    @Autowired
+    private ${table.className}Mapper ${tool.underlineToCamel($table.tableName)}Mapper;
+
+    @Override
+    public ${table.className} getById(#foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} id#end#end) {
+        return ${tool.underlineToCamel($table.tableName)}Mapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<${table.className}> listAll() {
+        return ${tool.underlineToCamel($table.tableName)}Mapper.selectAll();
+    }
+
+    @Override
+    public void save(${table.className} entity) {
+            ${tool.underlineToCamel($table.tableName)}Mapper.insert(entity);
+    }
+
+    @Override
+    public void update(${table.className} entity) {
+            ${tool.underlineToCamel($table.tableName)}Mapper.updateByPrimaryKey(entity);
+    }
+
+    @Override
+    public void deleteById(#foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} id#end#end) {
+            ${tool.underlineToCamel($table.tableName)}Mapper.deleteByPrimaryKey(id);
+    }
+}

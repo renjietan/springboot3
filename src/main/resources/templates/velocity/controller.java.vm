@@ -1,0 +1,44 @@
+package ${table.packageName}.controller;
+
+import ${table.packageName}.entity.${table.className};
+import ${table.packageName}.service.I${table.className}Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+/**
+ * ${table.classComment} Controller
+ * @author ${author}
+ */
+@RestController
+@RequestMapping("/${tool.underlineToCamel($table.tableName)}")
+public class ${table.className}Controller {
+
+    @Autowired
+    private I${table.className}Service ${tool.underlineToCamel($table.tableName)}Service;
+
+    @GetMapping("/{id}")
+    public ${table.className} getById(@PathVariable("id") #foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} id#end#end) {
+        return ${tool.underlineToCamel($table.tableName)}Service.getById(id);
+    }
+
+    @GetMapping("/list")
+    public List<${table.className}> listAll() {
+        return ${tool.underlineToCamel($table.tableName)}Service.listAll();
+    }
+
+    @PostMapping
+    public void save(@RequestBody ${table.className} entity) {
+            ${tool.underlineToCamel($table.tableName)}Service.save(entity);
+    }
+
+    @PutMapping
+    public void update(@RequestBody ${table.className} entity) {
+            ${tool.underlineToCamel($table.tableName)}Service.update(entity);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable("id") #foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} id#end#end) {
+            ${tool.underlineToCamel($table.tableName)}Service.deleteById(id);
+    }
+}
