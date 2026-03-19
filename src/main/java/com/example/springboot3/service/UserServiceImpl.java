@@ -24,17 +24,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
         if (StringUtils.hasText(param.getName())) {
             wrapper.like(UserEntity::getName, param.getName());
         }
-
-        // 时间区间查询（>= startTime 且 <= endTime）
         LocalDateTime start  = param.getStartTime();
         LocalDateTime end  = param.getEndTime();
         LocalDateTime now = LocalDateTime.now();
 
         if (start != null && end != null) {
-            // 情况1：startTime 和 endTime 都传入 -> 查询区间 [start, end]
+            // startTime 和 endTime 都传入 -> 查询区间 [start, end]
             wrapper.between(UserEntity::getCreateTime, start, end);
         } else if (start != null) {
-            // 情况2：仅 startTime 传入
             if (start.isAfter(now)) {
                 // startTime 大于当前时间，直接返回空数据
                 return createEmptyResult(param);
@@ -43,14 +40,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
                 wrapper.ge(UserEntity::getCreateTime, start);
             }
         } else if (end != null) {
-            // 情况3：仅 endTime 传入 -> 查询 createTime <= end
+            // 查询 createTime <= end
             wrapper.le(UserEntity::getCreateTime, end);
         }
-        // 判断是否传入分页参数（page 和 size 均不为 null）
         if (param.getPage() != null && param.getSize() != null) {
             // 分页查询
             IPage<UserEntity> page = new Page<>(param.getPage(), param.getSize());
-            baseMapper.selectPage(page,wrapper); // 显式指定泛型
+            baseMapper.selectPage(page,wrapper);
             return page;
         } else {
             // 非分页查询：直接返回列表
