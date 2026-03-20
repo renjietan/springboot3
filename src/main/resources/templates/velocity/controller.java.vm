@@ -1,10 +1,11 @@
 package ${table.packageName}.controller;
 
-import ${table.packageName}.entity.${table.className};
+import ${table.packageName}.entity.${table.className}Entity;
 import ${table.packageName}.service.I${table.className}Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import com.example.springboot3.utils.Result;
 
 /**
  * ${table.classComment} Controller
@@ -18,27 +19,34 @@ public class ${table.className}Controller {
     private I${table.className}Service ${tool.underlineToCamel($table.tableName)}Service;
 
     @GetMapping("/{id}")
-    public ${table.className} getById(@PathVariable("id") #foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} id#end#end) {
-        return ${tool.underlineToCamel($table.tableName)}Service.getById(id);
+    public Result<${table.className}Entity> getById(@PathVariable("id") #foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} id#end#end) {
+        ${table.className}Entity ety = ${tool.underlineToCamel($table.tableName)}Service.getById(id);
+        if (ety != null) {
+            return Result.error("数据不存在");
+        }
+        return Result.success(ety);
     }
 
     @GetMapping("/list")
-    public List<${table.className}> listAll() {
-        return ${tool.underlineToCamel($table.tableName)}Service.listAll();
+    public Result<List<${table.className}Entity>> listAll() {
+        return Result.success(${tool.underlineToCamel($table.tableName)}Service.list());
     }
 
     @PostMapping
-    public void save(@RequestBody ${table.className} entity) {
-            ${tool.underlineToCamel($table.tableName)}Service.save(entity);
+    public Result<Boolean> save(@RequestBody ${table.className}Entity entity) {
+        Boolean bool = ${tool.underlineToCamel($table.tableName)}Service.save(entity);
+        return Result.success(bool);
     }
 
     @PutMapping
-    public void update(@RequestBody ${table.className} entity) {
-            ${tool.underlineToCamel($table.tableName)}Service.update(entity);
+    public Result<Boolean> update(@RequestBody ${table.className}Entity entity) {
+        Boolean bool = ${tool.underlineToCamel($table.tableName)}Service.saveOrUpdate(entity);
+        return Result.success(bool);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable("id") #foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} id#end#end) {
-            ${tool.underlineToCamel($table.tableName)}Service.deleteById(id);
+    public Result<Boolean> deleteById(@PathVariable("id") #foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} id#end#end) {
+        Boolean bool = ${tool.underlineToCamel($table.tableName)}Service.removeById(id);
+        return Result.success(bool);
     }
 }

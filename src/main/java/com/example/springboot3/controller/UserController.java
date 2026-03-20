@@ -1,10 +1,10 @@
 package com.example.springboot3.controller;
 
 import com.example.springboot3.dto.user.BatchUserDTO;
-import com.example.springboot3.dto.user.UserDTO;
+import com.example.springboot3.dto.user.CreateUserDTO;
 import com.example.springboot3.dto.user.UserQueryDTO;
 import com.example.springboot3.entity.UserEntity;
-import com.example.springboot3.service.interfaces.UserService;
+import com.example.springboot3.service.IUserService;
 import com.example.springboot3.utils.Result;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -19,10 +19,10 @@ import java.util.List;
 @Tag(name="用户管理")
 @RestController
 @RequestMapping("/user")
-@RequiredArgsConstructor  // 使用 Lombok 生成构造器注入
+@RequiredArgsConstructor
 public class UserController {
     @Autowired
-    private final UserService userService;
+    private final IUserService userService;
 /*
     // 创建用户
     @Operation(summary = "新增用户", description = "新增用户")
@@ -31,7 +31,7 @@ public class UserController {
             @ApiResponse(responseCode = "500", description = "操作失败")
     })*/
     @PostMapping
-    public Result<UserEntity> createUser(@Valid @RequestBody UserDTO userDTO) {
+    public Result<UserEntity> createUser(@Valid @RequestBody CreateUserDTO userDTO) {
         UserEntity user = new UserEntity();
         BeanUtils.copyProperties(userDTO, user);
         userService.save(user);
@@ -40,7 +40,7 @@ public class UserController {
     @PutMapping("/batch")
     public Result<List<UserEntity>> createUserBatch(@Valid @RequestBody BatchUserDTO userDTOList) {
         List<UserEntity> user_entities = new ArrayList<UserEntity>();
-        for (UserDTO userDTO : userDTOList.getUsers()) {
+        for (CreateUserDTO userDTO : userDTOList.getUsers()) {
             UserEntity user = new UserEntity();
             BeanUtils.copyProperties(userDTO, user);
             /*userService.save(user);*/
@@ -56,6 +56,7 @@ public class UserController {
         if (user == null) {
             return Result.error("用户不存在");
         }
+
         return Result.success(user);
     }
     @DeleteMapping("{userId}")

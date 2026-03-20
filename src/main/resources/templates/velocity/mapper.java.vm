@@ -1,38 +1,13 @@
 package ${table.packageName}.mapper;
 
-import ${table.packageName}.entity.${table.className};
-import org.apache.ibatis.annotations.Mapper;
-import java.util.List;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import ${table.packageName}.entity.${table.className}Entity;
 
 /**
  * ${table.classComment} Mapper 接口
  * @author ${author}
  */
 @Mapper
-public interface ${table.className}Mapper {
+public interface ${table.className}Mapper extends BaseMapper<${table.className}Entity> {
 
-    /**
-     * 根据主键查询
-     */
-        ${table.className} selectByPrimaryKey(#foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} ${col.fieldName}#end#end);
-
-    /**
-     * 查询所有
-     */
-    List<${table.className}> selectAll();
-
-    /**
-     * 插入
-     */
-    int insert(${table.className} record);
-
-    /**
-     * 更新
-     */
-    int updateByPrimaryKey(${table.className} record);
-
-    /**
-     * 删除
-     */
-    int deleteByPrimaryKey(#foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} ${col.fieldName}#end#end);
 }

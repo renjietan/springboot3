@@ -1,10 +1,10 @@
-package com.example.springboot3.service.interfaces;
+package com.example.springboot3.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.springboot3.dto.user.UserQueryDTO;
 import com.example.springboot3.entity.UserEntity;
 
-public interface UserService extends IService<UserEntity> {
+public interface IUserService extends IService<UserEntity> {
     /**
      * 根据参数决定是否分页查询
      * @param param 分页参数（page/size 可能为 null）

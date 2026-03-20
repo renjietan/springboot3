@@ -1,7 +1,5 @@
 package com.example.springboot3.dto.user;
 
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -13,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Data
-public class UserDTO {
+public class CreateUserDTO {
     @NotBlank(message = "姓名不能为空")
     private String name;
 

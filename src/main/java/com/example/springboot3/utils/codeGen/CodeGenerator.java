@@ -99,7 +99,7 @@ public class CodeGenerator {
      */
     private void generateEntity(TableInfo tableInfo) {
         String templateName = "templates/velocity/entity.java.vm";
-        String filePath = buildFilePath(tableInfo, "entity", tableInfo.getClassName() + ".java");
+        String filePath = buildFilePath(tableInfo, "entity", tableInfo.getClassName() + "Entity" + ".java");
         generateFile(templateName, tableInfo, filePath);
     }
 

@@ -1,6 +1,12 @@
 package ${table.packageName}.entity;
 
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
+
 #foreach($col in $table.columns)
     #if($col.fieldType == "BigDecimal")
     import java.math.BigDecimal;
@@ -13,14 +19,29 @@ import java.util.Date;
  * @author ${author}
  * @date ${date}
  */
-public class ${table.className} {
-
+@Getter
+@Setter
+@Data
+@TableName("${table.className}")
+public class ${table.className}Entity {
     #foreach($col in $table.columns)
-            /** ${col.columnComment} */
+        /** ${col.columnComment} - ${col.fieldType} - ${col.fieldName} */
+        #if($col.fieldName == "createTime")
+        @TableField(fill = FieldFill.INSERT)  // 插入时自动填充
+        private LocalDateTime ${col.fieldName};
+        #elseif($col.fieldName == "updateTime")
+        @TableField(fill = FieldFill.INSERT_UPDATE)
+        private LocalDateTime ${col.fieldName};
+        #elseif($col.fieldName == "deleted")
+        @TableField(fill = FieldFill.INSERT)
+        @TableLogic
+        private ${col.fieldType} ${col.fieldName};
+        #else
+            /** ${col.columnComment} - ${col.fieldType} - ${col.fieldName} */
             private ${col.fieldType} ${col.fieldName};
-
+        #end
     #end
-    #foreach($col in $table.columns)
+   #* #foreach($col in $table.columns)
             public ${col.fieldType} get${tool.capitalize($col.fieldName)}() {
                 return ${col.fieldName};
             }
@@ -29,5 +50,5 @@ public class ${table.className} {
                 this.${col.fieldName} = ${col.fieldName};
             }
 
-    #end
+    #end*#
         }

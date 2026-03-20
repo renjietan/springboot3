@@ -15,5 +15,5 @@ import java.util.List;
 public class BatchUserDTO {
     @NotEmpty(message = "用户列表不能为空")
     @Valid
-    private List<UserDTO> users;
+    private List<CreateUserDTO> users;
 }

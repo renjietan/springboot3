@@ -1,21 +1,12 @@
 package ${table.packageName}.service;
 
-import ${table.packageName}.entity.${table.className};
-import java.util.List;
+import ${table.packageName}.entity.${table.className}Entity;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * ${table.classComment} Service 接口
  * @author ${author}
  */
-public interface I${table.className}Service {
+public interface I${table.className}Service extends IService<${table.className}Entity> {
 
-    ${table.className} getById(#foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} id#end#end);
-
-    List<${table.className}> listAll();
-
-    void save(${table.className} entity);
-
-    void update(${table.className} entity);
-
-    void deleteById(#foreach($col in $table.columns)#if($col.primaryKey)${col.fieldType} id#end#end);
 }

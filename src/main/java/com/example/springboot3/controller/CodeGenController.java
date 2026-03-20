@@ -1,6 +1,7 @@
 package com.example.springboot3.controller;
 
 import com.example.springboot3.utils.codeGen.CodeGenerator;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 
+@Tag(name="代码生成")
 @RestController
 @RequestMapping("/cg")
 public class CodeGenController {

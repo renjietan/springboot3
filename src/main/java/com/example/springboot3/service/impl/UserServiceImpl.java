@@ -1,4 +1,4 @@
-package com.example.springboot3.service;
+package com.example.springboot3.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -6,8 +6,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.springboot3.dto.user.UserQueryDTO;
 import com.example.springboot3.entity.UserEntity;
-import com.example.springboot3.mapper.user.UserMapper;
-import com.example.springboot3.service.interfaces.UserService;
+import com.example.springboot3.mapper.UserMapper;
+import com.example.springboot3.service.IUserService;
 import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> implements IUserService {
     @Override
     public Object getList(UserQueryDTO param) {
         // 构建查询条件：name 模糊查询（如果传入）
