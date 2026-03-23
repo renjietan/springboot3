@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 
 @Slf4j
-@Component
+@Component("MyMetaObjectHandler")
 public class MyMetaObjectHandler implements MetaObjectHandler {
 
     /**

@@ -1,13 +1,17 @@
 package com.example.springboot3.controller;
 
+import com.example.springboot3.dto.codeGen.CodeGenDTO;
+import com.example.springboot3.dto.codeGen.CodeGenItemDTO;
 import com.example.springboot3.utils.codeGen.CodeGenerator;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
+import java.util.List;
 
 @Tag(name="代码生成")
 @RestController
@@ -17,9 +21,9 @@ public class CodeGenController {
     private CodeGenerator codeGenerator;
 
     @PostMapping
-    public void CodeGen() {
-        /*InputStream is = getClass().getClassLoader().getResourceAsStream("templates/velocity/controller.java.vm");
-        System.out.println("Stream: " + is);*/ // 如果为 null，说明文件不在 classpath 中
-        codeGenerator.generate(Arrays.asList("gen_config", "gen_field_config"));
+    public void CodeGen(@RequestBody @Valid CodeGenDTO dto) {
+        // gen_config、gen_field_config
+        List<String> list = dto.getData().stream().map(CodeGenItemDTO::getTableName).toList();
+        codeGenerator.generate(list);
     }
 }

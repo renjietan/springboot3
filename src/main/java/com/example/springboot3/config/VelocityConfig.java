@@ -6,6 +6,7 @@ import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+// 代码自动生成
 @Configuration
 public class VelocityConfig {
     @Bean
