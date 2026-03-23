@@ -5,7 +5,7 @@ server:
 generator:
   outputDir: src/main/java   # 生成的代码输出目录（绝对或相对路径）
   basePackage: com.example.springboot3  # 基础包名
-  author: tanrenjie               # 作者
+  author: Tan               # 作者
 
 logging:
   level:

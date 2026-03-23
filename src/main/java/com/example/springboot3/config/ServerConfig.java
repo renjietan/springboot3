@@ -12,4 +12,8 @@ import org.springframework.stereotype.Component;
 public class ServerConfig {
     private String address;
     private int port;
+
+    public String getUploadsPrefixUrl() {
+        return "http://" + address + ":" + port + "/uploads/";
+    }
 }
