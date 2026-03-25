@@ -1,14 +1,13 @@
 package com.example.springboot3.controller;
 
 import com.example.springboot3.config.ServerConfig;
+import com.example.springboot3.dto.upload.uploadFormDataDTO;
 import com.example.springboot3.utils.Result;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -53,5 +52,21 @@ public class UploadController {
         } catch (IOException e) {
             return Result.error("文件上传失败");
         }
+    }
+
+    @PostMapping(value = "/mult", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public Result<String> uploadFormDataFile(@ModelAttribute @Valid uploadFormDataDTO dto) {
+        MultipartFile multipartFile = dto.getFile();
+        String field1 = dto.getField1();
+        String field2 = dto.getField2();
+        return  Result.success("");
+    }
+
+    @PostMapping(value = "/batch", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public Result<String> batchUploadFile(@ModelAttribute @Valid uploadFormDataDTO dto) {
+        MultipartFile multipartFile = dto.getFile();
+        String field1 = dto.getField1();
+        String field2 = dto.getField2();
+        return  Result.success("");
     }
 }
