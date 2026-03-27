@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Arrays;
-
 
 @SpringBootTest
 class Springboot3ApplicationTests {
@@ -19,9 +17,8 @@ class Springboot3ApplicationTests {
     private CodeGenerator codeGenerator;
 
     @Test
-    void testGenerate() {
+    void test() {
         // 指定要生成的表名
-        codeGenerator.generate(Arrays.asList("gen_config", "gen_field_config"));
     }
 
 }
