@@ -1,0 +1,524 @@
+2026-03-30 14:47:47.547 ERROR [http-nio-127.0.0.1-8080-exec-2] c.e.s.controller.UserController - 错误日志
+2026-03-30 14:47:47.550 INFO  [http-nio-127.0.0.1-8080-exec-2] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-30 14:47:48.569 ERROR [http-nio-127.0.0.1-8080-exec-2] c.l.u.e.GlobalExceptionHandler - RuntimeException
+org.mybatis.spring.MyBatisSystemException: 
+### Error updating database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+### The error may exist in com/example/springboot3/mapper/UserMapper.java (best guess)
+### The error may involve com.example.springboot3.mapper.UserMapper.insert
+### The error occurred while executing an update
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:99)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:347)
+	at jdk.proxy2/jdk.proxy2.$Proxy89.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:224)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:59)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
+	at jdk.proxy2/jdk.proxy2.$Proxy93.insert(Unknown Source)
+	at com.baomidou.mybatisplus.extension.repository.IRepository.save(IRepository.java:37)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:715)
+	at com.example.springboot3.service.impl.UserServiceImpl$$SpringCGLIB$$0.save(<generated>)
+	at com.example.springboot3.controller.UserController.createUser(UserController.java:42)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:184)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+### The error may exist in com/example/springboot3/mapper/UserMapper.java (best guess)
+### The error may involve com.example.springboot3.mapper.UserMapper.insert
+### The error occurred while executing an update
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:199)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+	... 60 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:77)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:64)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:348)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:89)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:49)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:61)
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:106)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
+	at jdk.proxy2/jdk.proxy2.$Proxy122.update(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	... 66 common frames omitted
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:165)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:55)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:840)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:416)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	... 82 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:52)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:95)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:140)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:156)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:79)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:142)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:964)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
+	... 95 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:144)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:53)
+	... 98 common frames omitted
+2026-03-30 14:48:07.590 INFO  [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 14:48:07.602 INFO  [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-03-30 14:48:36.282 INFO  [main] c.e.s.Springboot3Application - Starting Springboot3Application using Java 17.0.12 with PID 8464 (D:\work\java\JavaProject\springboot3\target\classes started by Cc in D:\work\java\JavaProject\springboot3)
+2026-03-30 14:48:36.286 DEBUG [main] c.e.s.Springboot3Application - Running with Spring Boot v4.0.3, Spring v7.0.5
+2026-03-30 14:48:36.287 INFO  [main] c.e.s.Springboot3Application - The following 1 profile is active: "dev"
+2026-03-30 14:48:38.342 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-30 14:48:38.366 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-30 14:48:38.366 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-30 14:48:38.465 INFO  [main] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 2100 ms
+2026-03-30 14:48:38.620 WARN  [main] org.apache.velocity.deprecation - configuration key 'resource.loader' has been deprecated in favor of 'resource.loaders'
+2026-03-30 14:48:38.621 WARN  [main] org.apache.velocity.deprecation - configuration key 'classpath.resource.loader.class' has been deprecated in favor of 'resource.loader.classpath.class'
+2026-03-30 14:48:41.067 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-03-30 14:48:41.077 INFO  [main] c.e.s.Springboot3Application - Started Springboot3Application in 5.608 seconds (process running for 7.013)
+2026-03-30 14:48:41.081 WARN  [main] o.s.c.events.SpringDocAppInitializer - SpringDoc /api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-30 14:54:50.618 INFO  [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 14:54:50.621 INFO  [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-03-30 16:56:54.103 INFO  [main] c.e.s.Springboot3Application - Starting Springboot3Application using Java 17.0.12 with PID 12632 (D:\work\java\JavaProject\springboot3\target\classes started by Cc in D:\work\java\JavaProject\springboot3)
+2026-03-30 16:56:54.111 DEBUG [main] c.e.s.Springboot3Application - Running with Spring Boot v4.0.3, Spring v7.0.5
+2026-03-30 16:56:54.119 INFO  [main] c.e.s.Springboot3Application - The following 1 profile is active: "dev"
+2026-03-30 16:56:58.092 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-30 16:56:58.130 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-30 16:56:58.130 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-30 16:56:58.399 INFO  [main] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 4005 ms
+2026-03-30 16:56:58.578 WARN  [main] org.apache.velocity.deprecation - configuration key 'resource.loader' has been deprecated in favor of 'resource.loaders'
+2026-03-30 16:56:58.580 WARN  [main] org.apache.velocity.deprecation - configuration key 'classpath.resource.loader.class' has been deprecated in favor of 'resource.loader.classpath.class'
+2026-03-30 16:57:02.488 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-03-30 16:57:02.513 INFO  [main] c.e.s.Springboot3Application - Started Springboot3Application in 10.381 seconds (process running for 14.007)
+2026-03-30 16:57:02.520 WARN  [main] o.s.c.events.SpringDocAppInitializer - SpringDoc /api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-30 16:57:02.529 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 开始执行，线程: async-1, 开始时间: 2026-03-30T16:57:02.528999900
+2026-03-30 16:57:02.529 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:57:02.528999900
+2026-03-30 16:57:04.544 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:57:04.544816900
+2026-03-30 16:57:05.564 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 执行结束，线程: async-1, 结束时间：2026-03-30T16:57:05.564887100
+2026-03-30 16:57:07.562 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:57:07.562388700
+2026-03-30 16:57:07.560 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 开始执行，线程: async-4, 开始时间: 2026-03-30T16:57:07.560387100
+2026-03-30 16:57:09.572 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:57:09.571395500
+2026-03-30 16:57:10.020 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T16:57:10.020253700
+2026-03-30 16:57:10.565 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 执行结束，线程: async-4, 结束时间：2026-03-30T16:57:10.565076200
+2026-03-30 16:57:12.510 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:57:12.510474
+2026-03-30 16:57:12.546 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 开始执行，线程: async-1, 开始时间: 2026-03-30T16:57:12.546470200
+2026-03-30 16:57:14.512 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:57:14.512645500
+2026-03-30 16:57:15.553 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 执行结束，线程: async-1, 结束时间：2026-03-30T16:57:15.553184500
+2026-03-30 16:57:17.514 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:57:17.512324100
+2026-03-30 16:57:17.549 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 开始执行，线程: async-5, 开始时间: 2026-03-30T16:57:17.549641500
+2026-03-30 16:57:19.517 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:57:19.517544400
+2026-03-30 16:57:20.000 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-4, 执行于: 2026-03-30T16:57:20.000574200
+2026-03-30 16:57:20.550 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 执行结束，线程: async-5, 结束时间：2026-03-30T16:57:20.550838300
+2026-03-30 16:57:22.517 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:57:22.517537400
+2026-03-30 16:57:22.560 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 开始执行，线程: async-1, 开始时间: 2026-03-30T16:57:22.560536200
+2026-03-30 16:57:24.584 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:57:24.583930700
+2026-03-30 16:57:25.636 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 执行结束，线程: async-1, 结束时间：2026-03-30T16:57:25.636633900
+2026-03-30 16:57:27.515 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:57:27.515190200
+2026-03-30 16:57:27.578 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 开始执行，线程: async-4, 开始时间: 2026-03-30T16:57:27.578192900
+2026-03-30 16:57:29.519 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:57:29.519095400
+2026-03-30 16:57:30.007 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T16:57:30.007048600
+2026-03-30 16:57:30.588 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 执行结束，线程: async-4, 结束时间：2026-03-30T16:57:30.588982700
+2026-03-30 16:57:32.550 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:57:32.550891100
+2026-03-30 16:57:32.633 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 开始执行，线程: async-1, 开始时间: 2026-03-30T16:57:32.633914500
+2026-03-30 16:57:34.556 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:57:34.556210400
+2026-03-30 16:57:35.649 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 执行结束，线程: async-1, 结束时间：2026-03-30T16:57:35.649416700
+2026-03-30 16:57:37.515 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:57:37.515061300
+2026-03-30 16:57:37.636 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 开始执行，线程: async-5, 开始时间: 2026-03-30T16:57:37.636330800
+2026-03-30 16:57:39.517 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:57:39.517117700
+2026-03-30 16:57:40.008 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-4, 执行于: 2026-03-30T16:57:40.008120600
+2026-03-30 16:57:40.637 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 执行结束，线程: async-5, 结束时间：2026-03-30T16:57:40.637645100
+2026-03-30 16:57:42.517 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:57:42.515917600
+2026-03-30 16:57:42.652 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 开始执行，线程: async-1, 开始时间: 2026-03-30T16:57:42.652924900
+2026-03-30 16:57:44.528 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:57:44.528398600
+2026-03-30 16:57:45.352 INFO  [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 16:57:45.355 INFO  [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-03-30 16:57:45.733 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 执行结束，线程: async-1, 结束时间：2026-03-30T16:57:45.733582400
+2026-03-30 16:58:26.856 INFO  [main] c.e.s.Springboot3Application - Starting Springboot3Application using Java 17.0.12 with PID 15328 (D:\work\java\JavaProject\springboot3\target\classes started by Cc in D:\work\java\JavaProject\springboot3)
+2026-03-30 16:58:26.861 DEBUG [main] c.e.s.Springboot3Application - Running with Spring Boot v4.0.3, Spring v7.0.5
+2026-03-30 16:58:26.862 INFO  [main] c.e.s.Springboot3Application - The following 1 profile is active: "dev"
+2026-03-30 16:58:29.511 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-30 16:58:29.544 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-30 16:58:29.545 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-30 16:58:29.642 INFO  [main] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 2680 ms
+2026-03-30 16:58:29.783 WARN  [main] org.apache.velocity.deprecation - configuration key 'resource.loader' has been deprecated in favor of 'resource.loaders'
+2026-03-30 16:58:29.784 WARN  [main] org.apache.velocity.deprecation - configuration key 'classpath.resource.loader.class' has been deprecated in favor of 'resource.loader.classpath.class'
+2026-03-30 16:58:31.822 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-03-30 16:58:31.842 INFO  [main] c.e.s.Springboot3Application - Started Springboot3Application in 5.872 seconds (process running for 7.458)
+2026-03-30 16:58:31.847 WARN  [main] o.s.c.events.SpringDocAppInitializer - SpringDoc /api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-30 16:58:31.849 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T16:58:31.849817700
+2026-03-30 16:58:31.848 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:58:31.848818500
+2026-03-30 16:58:33.850 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:58:33.850318900
+2026-03-30 16:58:34.850 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T16:58:34.850571400
+2026-03-30 16:58:36.835 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:58:36.835394900
+2026-03-30 16:58:36.850 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T16:58:36.850397800
+2026-03-30 16:58:38.837 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:58:38.837190100
+2026-03-30 16:58:39.852 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T16:58:39.852591100
+2026-03-30 16:58:40.001 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T16:58:40.001710800
+2026-03-30 16:58:41.835 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:58:41.835115900
+2026-03-30 16:58:41.859 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T16:58:41.859407600
+2026-03-30 16:58:43.845 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:58:43.845394500
+2026-03-30 16:58:44.871 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T16:58:44.871850
+2026-03-30 16:58:46.844 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:58:46.844450400
+2026-03-30 16:58:46.875 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T16:58:46.875445100
+2026-03-30 16:58:48.855 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:58:48.855351700
+2026-03-30 16:58:49.889 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T16:58:49.889107800
+2026-03-30 16:58:50.012 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T16:58:50.012853200
+2026-03-30 16:58:51.846 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:58:51.846297400
+2026-03-30 16:58:51.879 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T16:58:51.879306800
+2026-03-30 16:58:53.882 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:58:53.881470100
+2026-03-30 16:58:54.889 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T16:58:54.889634800
+2026-03-30 16:58:56.845 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:58:56.845322700
+2026-03-30 16:58:56.892 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T16:58:56.892322
+2026-03-30 16:58:58.847 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:58:58.847119200
+2026-03-30 16:58:59.906 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T16:58:59.906163
+2026-03-30 16:59:00.000 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T16:59:00.000179400
+2026-03-30 16:59:01.839 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:59:01.839822300
+2026-03-30 16:59:01.893 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T16:59:01.893825400
+2026-03-30 16:59:03.842 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:59:03.842210500
+2026-03-30 16:59:04.896 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T16:59:04.896507400
+2026-03-30 16:59:06.839 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:59:06.839364800
+2026-03-30 16:59:06.909 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T16:59:06.909396500
+2026-03-30 16:59:08.843 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:59:08.843124800
+2026-03-30 16:59:09.920 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T16:59:09.920271400
+2026-03-30 16:59:10.015 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T16:59:10.015840800
+2026-03-30 16:59:11.836 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:59:11.836652600
+2026-03-30 16:59:11.910 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T16:59:11.910369400
+2026-03-30 16:59:13.838 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:59:13.838867300
+2026-03-30 16:59:14.911 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T16:59:14.911300
+2026-03-30 16:59:16.836 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:59:16.836158
+2026-03-30 16:59:16.919 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T16:59:16.919150800
+2026-03-30 16:59:18.842 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:59:18.842274900
+2026-03-30 16:59:19.925 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T16:59:19.925178
+2026-03-30 16:59:20.005 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T16:59:20.005175800
+2026-03-30 16:59:21.836 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:59:21.836196400
+2026-03-30 16:59:21.920 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T16:59:21.920579500
+2026-03-30 16:59:23.838 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:59:23.838153100
+2026-03-30 16:59:24.923 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T16:59:24.923349700
+2026-03-30 16:59:26.843 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:59:26.843928800
+2026-03-30 16:59:26.929 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T16:59:26.929455
+2026-03-30 16:59:28.853 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:59:28.853369800
+2026-03-30 16:59:29.943 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T16:59:29.943135200
+2026-03-30 16:59:30.014 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T16:59:30.014889800
+2026-03-30 16:59:31.845 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:59:31.845001800
+2026-03-30 16:59:31.939 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T16:59:31.939942300
+2026-03-30 16:59:33.855 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:59:33.855865500
+2026-03-30 16:59:34.947 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T16:59:34.946632400
+2026-03-30 16:59:36.837 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:59:36.837240200
+2026-03-30 16:59:36.950 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T16:59:36.949247700
+2026-03-30 16:59:38.841 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:59:38.841519500
+2026-03-30 16:59:39.955 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T16:59:39.955740100
+2026-03-30 16:59:40.003 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T16:59:40.003740500
+2026-03-30 16:59:41.834 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:59:41.834550100
+2026-03-30 16:59:41.960 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T16:59:41.960613800
+2026-03-30 16:59:43.844 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:59:43.844087
+2026-03-30 16:59:44.965 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T16:59:44.965281600
+2026-03-30 16:59:46.835 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:59:46.835833100
+2026-03-30 16:59:46.961 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T16:59:46.961321800
+2026-03-30 16:59:48.836 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:59:48.836809300
+2026-03-30 16:59:49.965 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T16:59:49.965099900
+2026-03-30 16:59:50.016 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T16:59:50.016110
+2026-03-30 16:59:51.840 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T16:59:51.840554200
+2026-03-30 16:59:51.962 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T16:59:51.962412800
+2026-03-30 16:59:53.842 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T16:59:53.842775200
+2026-03-30 16:59:54.964 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T16:59:54.964195300
+2026-03-30 16:59:56.842 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T16:59:56.842906700
+2026-03-30 16:59:56.967 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T16:59:56.967259500
+2026-03-30 16:59:58.851 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T16:59:58.851742600
+2026-03-30 16:59:59.976 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T16:59:59.976451300
+2026-03-30 17:00:00.007 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T17:00:00.007319600
+2026-03-30 17:00:01.842 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T17:00:01.842564900
+2026-03-30 17:00:01.981 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T17:00:01.981305500
+2026-03-30 17:00:03.856 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T17:00:03.856630
+2026-03-30 17:00:04.992 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T17:00:04.992680100
+2026-03-30 17:00:06.837 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:00:06.837726400
+2026-03-30 17:00:06.993 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T17:00:06.993050500
+2026-03-30 17:00:08.848 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:00:08.848518100
+2026-03-30 17:00:10.000 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T17:00:10.000617800
+2026-03-30 17:00:10.000 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T17:00:10.000617800
+2026-03-30 17:00:11.835 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T17:00:11.835447
+2026-03-30 17:00:11.994 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T17:00:11.994363
+2026-03-30 17:00:13.836 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T17:00:13.836258600
+2026-03-30 17:00:14.995 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T17:00:14.995237200
+2026-03-30 17:00:16.849 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:00:16.849364600
+2026-03-30 17:00:17.020 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T17:00:17.020365800
+2026-03-30 17:00:18.852 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:00:18.852739
+2026-03-30 17:00:20.004 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T17:00:20.004237
+2026-03-30 17:00:20.035 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T17:00:20.035528400
+2026-03-30 17:00:21.840 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T17:00:21.840504
+2026-03-30 17:00:22.027 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T17:00:22.027853100
+2026-03-30 17:00:23.843 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T17:00:23.843467300
+2026-03-30 17:00:25.034 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T17:00:25.034531800
+2026-03-30 17:00:26.849 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:00:26.849227900
+2026-03-30 17:00:27.043 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 开始时间: 2026-03-30T17:00:27.043013500
+2026-03-30 17:00:28.862 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:00:28.862430200
+2026-03-30 17:00:30.009 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-4, 执行于: 2026-03-30T17:00:30.009416500
+2026-03-30 17:00:30.064 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 结束时间：2026-03-30T17:00:30.064417700
+2026-03-30 17:00:31.835 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T17:00:31.835241600
+2026-03-30 17:00:32.083 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T17:00:32.083501900
+2026-03-30 17:00:33.855 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T17:00:33.855252
+2026-03-30 17:00:35.101 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T17:00:35.101736100
+2026-03-30 17:00:36.843 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:00:36.843724100
+2026-03-30 17:00:37.091 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T17:00:37.091085100
+2026-03-30 17:00:38.850 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:00:38.850894600
+2026-03-30 17:00:40.009 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T17:00:40.009430300
+2026-03-30 17:00:40.102 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T17:00:40.102141500
+2026-03-30 17:00:41.850 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T17:00:41.850196400
+2026-03-30 17:00:42.103 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T17:00:42.103769900
+2026-03-30 17:00:43.851 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T17:00:43.851610600
+2026-03-30 17:00:45.120 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T17:00:45.120566500
+2026-03-30 17:00:46.841 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:00:46.841424100
+2026-03-30 17:00:47.108 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 开始时间: 2026-03-30T17:00:47.108228900
+2026-03-30 17:00:48.918 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:00:48.918454
+2026-03-30 17:00:50.001 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-4, 执行于: 2026-03-30T17:00:50.001357500
+2026-03-30 17:00:50.112 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 结束时间：2026-03-30T17:00:50.112070200
+2026-03-30 17:00:51.842 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T17:00:51.842364200
+2026-03-30 17:00:52.109 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T17:00:52.109097600
+2026-03-30 17:00:53.844 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T17:00:53.844395600
+2026-03-30 17:00:55.118 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T17:00:55.118793500
+2026-03-30 17:00:56.848 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:00:56.848129100
+2026-03-30 17:00:57.115 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T17:00:57.115365200
+2026-03-30 17:00:58.863 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:00:58.863189500
+2026-03-30 17:01:00.012 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T17:01:00.012724700
+2026-03-30 17:01:00.122 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T17:01:00.122459500
+2026-03-30 17:01:01.839 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T17:01:01.839980200
+2026-03-30 17:01:02.123 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T17:01:02.123614700
+2026-03-30 17:01:03.852 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T17:01:03.852765500
+2026-03-30 17:01:05.126 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T17:01:05.126172700
+2026-03-30 17:01:06.844 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:01:06.844623200
+2026-03-30 17:01:07.129 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 开始时间: 2026-03-30T17:01:07.129856800
+2026-03-30 17:01:08.846 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:01:08.846184700
+2026-03-30 17:01:10.015 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-4, 执行于: 2026-03-30T17:01:10.015224200
+2026-03-30 17:01:10.139 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 结束时间：2026-03-30T17:01:10.139975400
+2026-03-30 17:01:11.845 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T17:01:11.845431200
+2026-03-30 17:01:12.131 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T17:01:12.131919400
+2026-03-30 17:01:14.193 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T17:01:14.193765800
+2026-03-30 17:01:15.142 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T17:01:15.142054900
+2026-03-30 17:01:16.839 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:01:16.839646400
+2026-03-30 17:01:17.151 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T17:01:17.151399500
+2026-03-30 17:01:18.844 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:01:18.844830500
+2026-03-30 17:01:20.016 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T17:01:20.016368100
+2026-03-30 17:01:20.156 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T17:01:20.156358300
+2026-03-30 17:01:21.850 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T17:01:21.850295200
+2026-03-30 17:01:22.166 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T17:01:22.166449200
+2026-03-30 17:01:23.866 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T17:01:23.866011600
+2026-03-30 17:01:25.172 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T17:01:25.172120500
+2026-03-30 17:01:26.842 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:01:26.842703200
+2026-03-30 17:01:27.174 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 开始时间: 2026-03-30T17:01:27.174412600
+2026-03-30 17:01:28.843 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:01:28.843208700
+2026-03-30 17:01:30.008 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-4, 执行于: 2026-03-30T17:01:30.008196500
+2026-03-30 17:01:30.179 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 结束时间：2026-03-30T17:01:30.179831600
+2026-03-30 17:01:31.843 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 开始时间：2026-03-30T17:01:31.843256500
+2026-03-30 17:01:32.177 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 开始时间: 2026-03-30T17:01:32.177055400
+2026-03-30 17:01:33.436 INFO  [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 17:01:33.439 INFO  [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-03-30 17:01:33.851 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-2, 结束时间：2026-03-30T17:01:33.851474300
+2026-03-30 17:01:35.191 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-1, 结束时间：2026-03-30T17:01:35.191596300
+2026-03-30 17:19:06.148 INFO  [main] c.e.s.Springboot3Application - Starting Springboot3Application using Java 17.0.12 with PID 14400 (D:\work\java\JavaProject\springboot3\target\classes started by Cc in D:\work\java\JavaProject\springboot3)
+2026-03-30 17:19:06.152 DEBUG [main] c.e.s.Springboot3Application - Running with Spring Boot v4.0.3, Spring v7.0.5
+2026-03-30 17:19:06.160 INFO  [main] c.e.s.Springboot3Application - The following 1 profile is active: "dev"
+2026-03-30 17:19:09.267 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-03-30 17:19:09.309 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-30 17:19:09.309 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-30 17:19:09.651 INFO  [main] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 3307 ms
+2026-03-30 17:19:09.782 WARN  [main] org.apache.velocity.deprecation - configuration key 'resource.loader' has been deprecated in favor of 'resource.loaders'
+2026-03-30 17:19:09.784 WARN  [main] org.apache.velocity.deprecation - configuration key 'classpath.resource.loader.class' has been deprecated in favor of 'resource.loader.classpath.class'
+2026-03-30 17:19:12.507 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-03-30 17:19:12.527 INFO  [main] c.e.s.Springboot3Application - Started Springboot3Application in 7.539 seconds (process running for 9.719)
+2026-03-30 17:19:12.536 WARN  [main] o.s.c.events.SpringDocAppInitializer - SpringDoc /api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-30 17:19:12.540 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 开始时间: 2026-03-30T17:19:12.540179100
+2026-03-30 17:19:12.540 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 开始时间：2026-03-30T17:19:12.540179100
+2026-03-30 17:19:14.546 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 结束时间：2026-03-30T17:19:14.545910
+2026-03-30 17:19:15.549 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 结束时间：2026-03-30T17:19:15.549593300
+2026-03-30 17:19:17.524 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:19:17.524602400
+2026-03-30 17:19:17.538 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T17:19:17.538638
+2026-03-30 17:19:19.533 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:19:19.533627500
+2026-03-30 17:19:20.002 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T17:19:20.002579600
+2026-03-30 17:19:20.548 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T17:19:20.548256300
+2026-03-30 17:19:22.536 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 开始时间：2026-03-30T17:19:22.536102
+2026-03-30 17:19:22.551 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 开始时间: 2026-03-30T17:19:22.551563
+2026-03-30 17:19:24.549 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 结束时间：2026-03-30T17:19:24.549576400
+2026-03-30 17:19:25.564 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 结束时间：2026-03-30T17:19:25.564826
+2026-03-30 17:19:27.534 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:19:27.534550800
+2026-03-30 17:19:27.552 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 开始时间: 2026-03-30T17:19:27.552540800
+2026-03-30 17:19:29.537 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:19:29.537715200
+2026-03-30 17:19:30.015 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-4, 执行于: 2026-03-30T17:19:30.015222600
+2026-03-30 17:19:30.557 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 结束时间：2026-03-30T17:19:30.557804700
+2026-03-30 17:19:32.523 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 开始时间：2026-03-30T17:19:32.523473
+2026-03-30 17:19:32.555 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 开始时间: 2026-03-30T17:19:32.555514
+2026-03-30 17:19:34.532 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 结束时间：2026-03-30T17:19:34.532820400
+2026-03-30 17:19:35.571 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 结束时间：2026-03-30T17:19:35.571533800
+2026-03-30 17:19:37.531 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:19:37.531665100
+2026-03-30 17:19:37.563 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T17:19:37.563512100
+2026-03-30 17:19:39.542 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:19:39.542009700
+2026-03-30 17:19:40.009 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T17:19:40.009587900
+2026-03-30 17:19:40.567 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T17:19:40.567650300
+2026-03-30 17:19:42.527 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 开始时间：2026-03-30T17:19:42.527908600
+2026-03-30 17:19:42.572 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 开始时间: 2026-03-30T17:19:42.572415900
+2026-03-30 17:19:44.537 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 结束时间：2026-03-30T17:19:44.537855100
+2026-03-30 17:19:45.576 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 结束时间：2026-03-30T17:19:45.576850200
+2026-03-30 17:19:47.536 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:19:47.536339
+2026-03-30 17:19:47.573 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 开始时间: 2026-03-30T17:19:47.573071200
+2026-03-30 17:19:49.537 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:19:49.537273600
+2026-03-30 17:19:50.000 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-4, 执行于: 2026-03-30T17:19:50.000916100
+2026-03-30 17:19:50.576 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 结束时间：2026-03-30T17:19:50.576987600
+2026-03-30 17:19:52.528 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 开始时间：2026-03-30T17:19:52.528344
+2026-03-30 17:19:52.576 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 开始时间: 2026-03-30T17:19:52.576847600
+2026-03-30 17:19:54.542 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 结束时间：2026-03-30T17:19:54.542249900
+2026-03-30 17:19:55.584 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 结束时间：2026-03-30T17:19:55.584860600
+2026-03-30 17:19:57.534 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:19:57.534852
+2026-03-30 17:19:57.580 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T17:19:57.580612600
+2026-03-30 17:19:59.538 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:19:59.538272500
+2026-03-30 17:20:00.008 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T17:20:00.007530
+2026-03-30 17:20:00.587 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T17:20:00.587757900
+2026-03-30 17:20:02.525 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 开始时间：2026-03-30T17:20:02.525909400
+2026-03-30 17:20:02.589 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 开始时间: 2026-03-30T17:20:02.589907500
+2026-03-30 17:20:04.535 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 结束时间：2026-03-30T17:20:04.535225
+2026-03-30 17:20:05.604 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 结束时间：2026-03-30T17:20:05.604079200
+2026-03-30 17:20:07.544 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:20:07.544049300
+2026-03-30 17:20:07.599 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 开始时间: 2026-03-30T17:20:07.599057300
+2026-03-30 17:20:09.553 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:20:09.553652300
+2026-03-30 17:20:10.007 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-4, 执行于: 2026-03-30T17:20:10.007886300
+2026-03-30 17:20:10.601 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 结束时间：2026-03-30T17:20:10.601455300
+2026-03-30 17:20:12.533 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 开始时间：2026-03-30T17:20:12.533455100
+2026-03-30 17:20:12.611 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 开始时间: 2026-03-30T17:20:12.611392200
+2026-03-30 17:20:14.545 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 结束时间：2026-03-30T17:20:14.545904800
+2026-03-30 17:20:15.622 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 结束时间：2026-03-30T17:20:15.621706500
+2026-03-30 17:20:17.533 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:20:17.533341700
+2026-03-30 17:20:17.612 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T17:20:17.612860
+2026-03-30 17:20:19.534 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:20:19.534213100
+2026-03-30 17:20:20.000 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T17:20:20.000093200
+2026-03-30 17:20:20.614 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T17:20:20.614736
+2026-03-30 17:20:22.533 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 开始时间：2026-03-30T17:20:22.533318600
+2026-03-30 17:20:22.627 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 开始时间: 2026-03-30T17:20:22.627594200
+2026-03-30 17:20:24.538 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 结束时间：2026-03-30T17:20:24.538962900
+2026-03-30 17:20:25.638 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 结束时间：2026-03-30T17:20:25.638229500
+2026-03-30 17:20:27.530 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:20:27.530667600
+2026-03-30 17:20:27.640 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 开始时间: 2026-03-30T17:20:27.640878200
+2026-03-30 17:20:29.539 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:20:29.539949300
+2026-03-30 17:20:30.007 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-4, 执行于: 2026-03-30T17:20:30.007450900
+2026-03-30 17:20:30.650 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 结束时间：2026-03-30T17:20:30.650526300
+2026-03-30 17:20:32.530 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 开始时间：2026-03-30T17:20:32.530384200
+2026-03-30 17:20:32.655 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 开始时间: 2026-03-30T17:20:32.655738600
+2026-03-30 17:20:34.542 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 结束时间：2026-03-30T17:20:34.542682800
+2026-03-30 17:20:35.664 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 结束时间：2026-03-30T17:20:35.664839100
+2026-03-30 17:20:37.538 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:20:37.538462500
+2026-03-30 17:20:37.661 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T17:20:37.661982900
+2026-03-30 17:20:39.544 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:20:39.544206300
+2026-03-30 17:20:40.013 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T17:20:40.013889800
+2026-03-30 17:20:40.666 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T17:20:40.666879
+2026-03-30 17:20:42.525 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 开始时间：2026-03-30T17:20:42.525567300
+2026-03-30 17:20:42.670 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 开始时间: 2026-03-30T17:20:42.670377100
+2026-03-30 17:20:44.532 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 结束时间：2026-03-30T17:20:44.532968300
+2026-03-30 17:20:45.673 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 结束时间：2026-03-30T17:20:45.673315700
+2026-03-30 17:20:47.530 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:20:47.530495100
+2026-03-30 17:20:47.687 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 开始时间: 2026-03-30T17:20:47.687450300
+2026-03-30 17:20:49.537 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:20:49.537781200
+2026-03-30 17:20:50.008 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-4, 执行于: 2026-03-30T17:20:50.008112
+2026-03-30 17:20:50.695 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 结束时间：2026-03-30T17:20:50.695767600
+2026-03-30 17:20:52.528 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 开始时间：2026-03-30T17:20:52.528725600
+2026-03-30 17:20:52.696 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 开始时间: 2026-03-30T17:20:52.696011900
+2026-03-30 17:20:54.542 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 结束时间：2026-03-30T17:20:54.542306200
+2026-03-30 17:20:55.698 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 结束时间：2026-03-30T17:20:55.698643800
+2026-03-30 17:20:57.528 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:20:57.528456300
+2026-03-30 17:20:57.696 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 开始时间: 2026-03-30T17:20:57.696627600
+2026-03-30 17:20:59.529 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:20:59.529515200
+2026-03-30 17:21:00.001 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-5, 执行于: 2026-03-30T17:21:00.001968
+2026-03-30 17:21:00.697 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-4, 结束时间：2026-03-30T17:21:00.697906300
+2026-03-30 17:21:02.536 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 开始时间：2026-03-30T17:21:02.536656200
+2026-03-30 17:21:02.709 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 开始时间: 2026-03-30T17:21:02.709649200
+2026-03-30 17:21:04.547 INFO  [async-1] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-1, 结束时间：2026-03-30T17:21:04.547657700
+2026-03-30 17:21:05.725 INFO  [async-2] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-2, 结束时间：2026-03-30T17:21:05.725717400
+2026-03-30 17:21:07.532 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 开始时间：2026-03-30T17:21:07.532152
+2026-03-30 17:21:07.722 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 开始时间: 2026-03-30T17:21:07.722252300
+2026-03-30 17:21:09.535 INFO  [async-3] c.e.s.utils.component.ScheduledTasks - Task2 线程: async-3, 结束时间：2026-03-30T17:21:09.535295300
+2026-03-30 17:21:10.021 INFO  [async-4] c.e.s.utils.component.ScheduledTasks - Task3 线程: async-4, 执行于: 2026-03-30T17:21:10.021510200
+2026-03-30 17:21:10.736 INFO  [async-5] c.e.s.utils.component.ScheduledTasks - Task1 线程: async-5, 结束时间：2026-03-30T17:21:10.736773500
+2026-03-30 17:21:11.772 INFO  [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-30 17:21:11.775 INFO  [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
