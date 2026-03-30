@@ -6,9 +6,13 @@ import com.example.springboot3.dto.user.UserQueryDTO;
 import com.example.springboot3.entity.UserEntity;
 import com.example.springboot3.service.IUserService;
 import com.example.springboot3.utils.Result;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Tag(name="用户管理")
 @RestController
 @RequestMapping("/user")
@@ -23,13 +28,12 @@ import java.util.List;
 public class UserController {
     @Autowired
     private final IUserService userService;
-/*
     // 创建用户
     @Operation(summary = "新增用户", description = "新增用户")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "操作成功"),
             @ApiResponse(responseCode = "500", description = "操作失败")
-    })*/
+    })
     @PostMapping
     public Result<UserEntity> createUser(@Valid @RequestBody CreateUserDTO userDTO) {
         UserEntity user = new UserEntity();

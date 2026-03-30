@@ -6,17 +6,38 @@ upload:
   # 默认值，实际会被 profile 覆盖
   path: ${UPLOAD_PATH:uploads}
 
+# 日志
+logging:
+  level:
+    root: INFO                    # 全局日志级别
+    com.example: DEBUG            # 指定包或类的日志级别
+  file:
+    name: logs/app.log    # 日志输出文件路径（相对或绝对）
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n"
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 30
+
 spring:
+  application:
+    name: springboot3
+  profiles:
+    active: dev
+  task:
+    # 定时任务
+    scheduling:
+      pool:
+        size: 5
+      thread-name-prefix: scheduling-
   # 路径映射： 通过配置文件实现
   web:
     resources:
       static-locations:
         - classpath:/static/
         - file:${upload.path}
-  profiles:
-    active: dev
-  application:
-    name: springboot3
   servlet:
     encoding:
       charset: utf-8

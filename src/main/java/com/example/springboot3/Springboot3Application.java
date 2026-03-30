@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.example.springboot3.mapper") // 替换为你的 Mapper 包路径
+@MapperScan("com.example.springboot3.mapper")
 public class Springboot3Application {
 
     public static void main(String[] args) {

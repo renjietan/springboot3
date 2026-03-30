@@ -1,4 +1,4 @@
-package com.example.springboot3.utils.exception;
+package com.example.springboot3.utils.component;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import lombok.extern.slf4j.Slf4j;
